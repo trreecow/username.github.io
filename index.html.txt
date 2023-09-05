@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shape Calculator</title>
+</head>
+<body>
+    <h1>Shape Calculator</h1>
+    
+    <form method="post" action="calculate.py">
+        <!-- Shape selection -->
+        <label for="shape">Choose your shape:</label>
+        <select name="shape" id="shape">
+            <option value="square">Square</option>
+            <option value="triangle">Triangle</option>
+            <option value="trapezoid">Trapezoid</option>
+        </select>
+        <br><br>
+        
+        <!-- Input fields based on shape selection -->
+        <div id="square-fields" style="display: none;">
+            <label for="square_side">Enter side length of the square (cm):</label>
+            <input type="number" step="0.01" name="square_side" id="square_side">
+            <br><br>
+        </div>
+        
+        <div id="triangle-fields" style="display: none;">
+            <label for="triangle_a">Enter side length 1 of the triangle (cm):</label>
+            <input type="number" step="0.01" name="triangle_a" id="triangle_a">
+            <br><br>
+            <label for="triangle_b">Enter side length 2 of the triangle (cm):</label>
+            <input type="number" step="0.01" name="triangle_b" id="triangle_b">
+            <br><br>
+            <label for="triangle_k">Enter side length 3 of the triangle (cm):</label>
+            <input type="number" step="0.01" name="triangle_k" id="triangle_k">
+            <br><br>
+        </div>
+        
+        <div id="trapezoid-fields" style="display: none;">
+            <label for="trapezoid_b">Enter base length 1 of the trapezoid (cm):</label>
+            <input type="number" step="0.01" name="trapezoid_b" id="trapezoid_b">
+            <br><br>
+            <label for="trapezoid_d">Enter base length 2 of the trapezoid (cm):</label>
+            <input type="number" step="0.01" name="trapezoid_d" id="trapezoid_d">
+            <br><br>
+            <label for="trapezoid_a">Enter side length 1 of the trapezoid (cm):</label>
+            <input type="number" step="0.01" name="trapezoid_a" id="trapezoid_a">
+            <br><br>
+            <label for="trapezoid_c">Enter side length 2 of the trapezoid (cm):</label>
+            <input type="number" step="0.01" name="trapezoid_c" id="trapezoid_c">
+            <br><br>
+        </div>
+        
+        <input type="submit" value="Calculate">
+    </form>
+
+    <script>
+        // Show/hide input fields based on shape selection
+        document.getElementById('shape').addEventListener('change', function() {
+            var shape = this.value;
+            document.getElementById('square-fields').style.display = (shape === 'square') ? 'block' : 'none';
+            document.getElementById('triangle-fields').style.display = (shape === 'triangle') ? 'block' : 'none';
+            document.getElementById('trapezoid-fields').style.display = (shape === 'trapezoid') ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>
